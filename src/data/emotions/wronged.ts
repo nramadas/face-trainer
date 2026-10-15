@@ -1,0 +1,195 @@
+import type { Emotion } from '../types';
+import { imagePaths } from '../types';
+
+export const wronged: Emotion[] = [
+  {
+    id: 'anger',
+    name: 'Anger',
+    group: 'wronged',
+    definition: 'A hot, strong feeling that you or someone you care about has been treated unfairly. It pushes you to fight back or set it right.',
+    oneLiner: 'Someone has wronged you, and you are about to confront them.',
+    tier: 'face',
+    keyCue: 'Brows down hard and together over a wide, glaring stare.',
+    zones: {
+      brows: 'Pull your brows down hard and squeeze them together, so deep vertical lines form between them. This is the strongest signal.',
+      eyes: 'Raise your upper lids into a glare while you tighten the lower lids. Stare straight at the person and do not look away.',
+      mouth: 'Press your lips together hard into a thin line, or pull them back to bare your teeth. Clench your jaw.',
+      head: 'Push your head and chin forward toward the person. Square your shoulders and lean in.',
+      breath: 'Hard and fast through the nose, nostrils flaring. The breath pushes out with the words.',
+    },
+    actionUnits: ['AU4', 'AU5', 'AU7', 'AU23', 'AU24', 'AU31', 'AU38'],
+    confusedWith: [
+      {
+        id: 'hate',
+        difference: 'Hate is cold: a flat, still stare through level, narrowed lids, with little squeeze in the brows. Anger is hot: brows squeezed hard, a wide glare, the head pushing forward.',
+      },
+      {
+        id: 'contempt',
+        difference: 'Contempt pulls up one lip corner and looks down the nose through half-closed lids. Anger is even on both sides, with a wide-eyed glare straight at the person.',
+      },
+      {
+        id: 'frustration',
+        difference: 'Frustration glances up or away from people, with a big sigh. Anger locks the stare onto the person.',
+      },
+    ],
+    line: 'Say that again. Go on, say it to my face.',
+    face: { browInner: -0.85, browOuter: 0.1, squeeze: 1, eyeOpen: 0.45, lowerLid: 0.6, cornerUp: -0.2, press: 0.85, chin: 0.3, jaw: 0.9, pitch: 0.15, slump: -0.3 },
+    images: imagePaths('anger'),
+  },
+  {
+    id: 'contempt',
+    name: 'Contempt',
+    group: 'wronged',
+    definition: 'Seeing someone as beneath you and not worth your respect. You look down on them.',
+    oneLiner: 'This person is beneath you, and you want them to know it.',
+    tier: 'face',
+    keyCue: 'One lip corner pulled up and tight, on one side only.',
+    zones: {
+      brows: 'Keep your brows mostly level and relaxed. One may lift slightly.',
+      eyes: 'Lower your upper lids halfway, as if the person bores you. Look down at them along your nose.',
+      mouth: 'Pull one lip corner up and back into your cheek, tight, on one side only. The other side stays still. This one-sided pull is the key cue.',
+      head: 'Lift your chin and tip your head back slightly, so you look down your nose. Turn the head a little away.',
+      breath: 'A short breath out through the nose, like a small scoff.',
+    },
+    actionUnits: ['AU12 (one side)', 'AU14 (one side)', 'AU43', 'AU53'],
+    confusedWith: [
+      {
+        id: 'disgust',
+        difference: 'Disgust wrinkles the nose and lifts the whole upper lip, pulling the head back and away. Contempt keeps the nose smooth and pulls up only one lip corner.',
+      },
+      {
+        id: 'sarcasm',
+        difference: 'Sarcasm rolls the eyes up and makes a show of it for others. Contempt is quieter: half-closed eyes look down the nose and stay on the person.',
+      },
+      {
+        id: 'anger',
+        difference: 'Anger squeezes the brows hard and glares with wide eyes, head pushed forward. Contempt keeps the brows calm, the lids half lowered and the chin up.',
+      },
+    ],
+    line: "Oh. You're still here.",
+    face: { asym: 0.15, lidClose: 0.45, gy: 0.35, cornerAsym: 0.85, pitch: -0.4, turn: 0.2, tilt: -3 },
+    images: imagePaths('contempt'),
+  },
+  {
+    id: 'disgust',
+    name: 'Disgust',
+    group: 'wronged',
+    definition: 'A strong pull away from something that seems gross, rotten or morally sickening. You want it away from you.',
+    oneLiner: 'Something revolting is right in front of you, and you want to get away from it.',
+    tier: 'face',
+    keyCue: 'Nose wrinkled and upper lip raised.',
+    zones: {
+      brows: 'Pull your brows down and slightly together. They follow the nose wrinkle.',
+      eyes: 'Narrow your eyes by pushing the lower lids up. Look at the thing, then away.',
+      mouth: 'Wrinkle your nose and lift your upper lip on both sides, as if you smell something rotten. This is the key cue. The corners pull slightly down.',
+      head: 'Pull your head back and turn it a little away. The whole body leans back from the thing.',
+      breath: 'Stop breathing in. Push air out through the nose, or let out a small "ugh."',
+    },
+    actionUnits: ['AU4', 'AU7', 'AU9', 'AU10', 'AU15', 'AU16'],
+    confusedWith: [
+      {
+        id: 'contempt',
+        difference: 'Contempt pulls up only one lip corner, with a smooth nose and the chin up. Disgust wrinkles the nose and lifts the whole upper lip.',
+      },
+      {
+        id: 'anger',
+        difference: 'Anger pushes the head forward toward the person with a wide glare. Disgust wrinkles the nose and pulls the head back and away.',
+      },
+    ],
+    line: 'Is that mold? Get it out of here.',
+    face: { browInner: -0.45, squeeze: 0.55, lowerLid: 0.55, noseWrinkle: 0.9, upperLipRaise: 0.8, cornerUp: -0.3, chin: 0.2, pitch: -0.15, turn: -0.35, tilt: -4 },
+    images: imagePaths('disgust'),
+  },
+  {
+    id: 'dehumanization',
+    name: 'Dehumanization',
+    group: 'wronged',
+    definition: 'Seeing a person or group as less than human, so that treating them badly starts to feel acceptable. It grows out of contempt and hate.',
+    oneLiner: 'You talk about them as if they were not people at all.',
+    tier: 'context',
+    playableNote:
+      'There is no face of its own. Play it cold and blank: a flat look that passes over the person as if they were an object, lids half lowered, mouth flat with at most a faint one-sided curl, chin slightly up, body turned away. Borrows from Contempt and Hate, with less heat than either. What chills the audience is how little you feel.',
+    keyCue: 'A flat, empty gaze that slides past the person as if they were not there.',
+    zones: {
+      brows: 'Leave your brows flat and still. No movement at all.',
+      eyes: 'Lower your lids partway. Let your gaze pass over the person without stopping, as if looking at furniture. Do not meet their eyes.',
+      mouth: 'Keep the mouth flat and relaxed. At most, a faint curl at one corner.',
+      head: 'Chin slightly up, body still and turned a little away. Any gesture toward them is small and dismissive, like waving off a fly.',
+      breath: 'Even and unbothered. Speak in a flat, matter-of-fact voice.',
+    },
+    actionUnits: ['AU14 (one side)', 'AU43', 'AU52', 'AU53', 'AU61'],
+    confusedWith: [
+      {
+        id: 'contempt',
+        difference: 'Contempt looks straight at the person to put them down, with one lip corner pulled up tight. Dehumanization barely looks at them: the mouth is flat and the gaze slides past.',
+      },
+      {
+        id: 'hate',
+        difference: 'Hate locks onto the person with a fixed, burning stare. Dehumanization does not even hold the gaze; the eyes pass over them like an object.',
+      },
+    ],
+    line: "Those people? They don't feel things the way we do.",
+    face: { lidClose: 0.5, gx: -0.7, gy: 0.3, cornerAsym: 0.2, press: 0.1, pitch: -0.3, turn: 0.4 },
+    images: imagePaths('dehumanization'),
+  },
+  {
+    id: 'hate',
+    name: 'Hate',
+    group: 'wronged',
+    definition: 'A deep, lasting hostility toward a person or group, often with a wish to see them harmed. It is colder and lasts longer than anger.',
+    oneLiner: 'You look at them and feel nothing but cold, steady hostility.',
+    tier: 'face-body',
+    keyCue: 'A flat, fixed, unblinking stare through level, narrowed lids.',
+    zones: {
+      brows: 'Lower your brows a little, but do not squeeze them hard. Keep them flat and steady, not working.',
+      eyes: 'Narrow your eyes by bringing both lids in until they sit level, like slits. Fix the stare on the person and do not blink. This is the key cue.',
+      mouth: 'Keep the mouth flat and still. Lift the upper lip just a trace, as if something tastes bad.',
+      head: 'Hold the head and body completely still. Tip the chin slightly down, so you look out from under the brows.',
+      breath: 'Slow, quiet and controlled. No heat in it.',
+    },
+    actionUnits: ['AU4', 'AU7', 'AU10', 'AU24'],
+    confusedWith: [
+      {
+        id: 'anger',
+        difference: 'Anger runs hot: brows squeezed hard, a wide glare and the head pushing forward. Hate is cold: level, narrowed lids, little squeeze and total stillness.',
+      },
+      {
+        id: 'contempt',
+        difference: 'Contempt lifts the chin and pulls one lip corner up, looking down on the person. Hate keeps the chin down and the mouth flat, staring straight at them.',
+      },
+    ],
+    line: "I hope I'm there when it all comes apart for you.",
+    face: { browInner: -0.55, browOuter: -0.5, squeeze: 0.2, eyeOpen: -0.2, lowerLid: 0.9, upperLipRaise: 0.25, cornerUp: -0.1, press: 0.3, jaw: 0.6, pitch: 0.35 },
+    images: imagePaths('hate'),
+  },
+  {
+    id: 'self-righteousness',
+    name: 'Self-Righteousness',
+    group: 'wronged',
+    definition: 'Being sure you are morally right and the other person is wrong, and feeling better than them because of it.',
+    oneLiner: 'You would never do what they did, and you want them to know it.',
+    tier: 'face-body',
+    keyCue: 'Pursed lips under raised brows, with the chin up.',
+    zones: {
+      brows: 'Raise your brows evenly, as if you cannot believe what you are hearing.',
+      eyes: 'Lower your lids slightly while the brows stay up. Look down at the person.',
+      mouth: 'Purse your lips tight and push them forward a little. Pull the corners slightly down.',
+      head: 'Lift your chin and give a small, slow head shake. Fold your arms or put a hand to your chest.',
+      breath: 'A short sniff or huff through the nose before you speak.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU15', 'AU18', 'AU24', 'AU43', 'AU53'],
+    confusedWith: [
+      {
+        id: 'hubris',
+        difference: 'Hubris leans back with a one-sided smirk, pleased with itself. Self-righteousness is not pleased; it judges, with pursed lips and raised brows.',
+      },
+      {
+        id: 'contempt',
+        difference: 'Contempt pulls up one lip corner and stays quiet and cold. Self-righteousness is even on both sides: pursed lips, raised brows and a head shake.',
+      },
+    ],
+    line: 'Well, I would never speak to my mother like that.',
+    face: { browInner: 0.35, browOuter: 0.5, lidClose: 0.3, gy: 0.3, cornerUp: -0.3, press: 0.7, chin: 0.4, pitch: -0.35, tilt: -4, slump: -0.3 },
+    images: imagePaths('self-righteousness'),
+  },
+];

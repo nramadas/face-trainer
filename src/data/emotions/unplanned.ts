@@ -1,0 +1,191 @@
+import type { Emotion } from '../types';
+import { imagePaths } from '../types';
+
+export const unplanned: Emotion[] = [
+  {
+    id: 'boredom',
+    name: 'Boredom',
+    group: 'unplanned',
+    definition: 'Having nothing that holds your interest, so time drags. Your mind looks for something to grab onto and finds nothing.',
+    oneLiner: 'The meeting has run for an hour, and nothing in it matters to you.',
+    tier: 'face-body',
+    keyCue: 'Heavy lids, with the head propped on one hand and tilted.',
+    zones: {
+      brows: 'Let your brows go slack. The inner ends may lift a little as you sigh.',
+      eyes: 'Let your upper lids droop halfway. Let your eyes drift up to the ceiling or off to the side, and blink slowly.',
+      mouth: 'Let the mouth go slack, or push your lips over to one side. You can puff your cheeks and let the air out.',
+      head: 'Prop your head on one hand so it tilts. Slump down in the chair. Tap your fingers or check the clock.',
+      breath: 'A long, slow sigh out through loose lips. Maybe a yawn you do not quite hide.',
+    },
+    actionUnits: ['AU14 (one side)', 'AU43', 'AU55', 'AU63'],
+    confusedWith: [
+      {
+        id: 'resignation',
+        difference: 'In Resignation, the chin lifts a little, the lips press and the shoulders give a small shrug of giving up. Boredom is just waiting it out: head propped, mouth slack, eyes drifting.',
+      },
+      {
+        id: 'calm',
+        difference: 'In Calm, the body sits upright with open, steady eyes. Boredom slumps, with heavy lids and eyes drifting away.',
+      },
+    ],
+    line: "Are we almost done? It's been an hour.",
+    face: { browInner: 0.15, eyeOpen: -0.3, lidClose: 0.5, gx: 0.4, gy: -0.5, cornerUp: -0.1, shift: 0.55, tilt: 11, pitch: 0.1, slump: 0.6 },
+    images: imagePaths('boredom'),
+  },
+  {
+    id: 'disappointment',
+    name: 'Disappointment',
+    group: 'unplanned',
+    definition: 'The letdown when something you hoped for does not happen. What you wanted and what you got do not match.',
+    oneLiner: 'You hear the news, it is not what you hoped for, and your face drops.',
+    tier: 'face',
+    keyCue: 'The mouth corners drop and the lips press, with a short sigh.',
+    zones: {
+      brows: 'Let your brows dip down and in a little, for just a moment. Small and quick, not a frown.',
+      eyes: 'Drop your eyes, then look away to the side. Lids slightly heavy.',
+      mouth: 'Pull the corners down and press your lips together, so the mouth makes a flat, downturned line. Push the chin up a little.',
+      head: 'A small drop of the head and shoulders, as if something let the air out. Then a small nod, taking it in.',
+      breath: 'A short sigh out through the nose. This small deflating breath is the sound of it.',
+    },
+    actionUnits: ['AU4', 'AU15', 'AU17', 'AU24', 'AU61', 'AU64'],
+    confusedWith: [
+      {
+        id: 'sadness',
+        difference: 'In Sadness, the inner brows tent up, the whole body sinks, and it lasts. Disappointment is a quick drop: the brows dip, the lips press, a short sigh, and then you move on.',
+      },
+      {
+        id: 'discouragement',
+        difference: 'In Discouragement, the whole body drains, with the head lowering and a slow head shake. Disappointment is a quick drop in the face, and the body stays mostly upright.',
+      },
+    ],
+    line: 'Oh. Okay. Maybe next year, then.',
+    face: { browInner: -0.15, squeeze: 0.4, eyeOpen: -0.15, gx: -0.6, gy: 0.35, cornerUp: -0.6, press: 0.65, chin: 0.45, pitch: 0.1, slump: 0.2 },
+    images: imagePaths('disappointment'),
+  },
+  {
+    id: 'expectations',
+    name: 'Expectations',
+    group: 'unplanned',
+    definition: 'The picture you carry of how something should go. It is not a feeling by itself, but it sets you up for one when things do not match.',
+    oneLiner: 'You walk in with a picture of how this will go, and you check whether it is happening.',
+    tier: 'context',
+    playableNote:
+      'Expectations have no face of their own. Play someone checking whether it is going to plan: brows lifted slightly, eyes bright and searching the room or the other person, a small ready smile, body upright and leaning a little forward. Borrows from Excitement, turned down, plus the searching eyes of Interest. The moment it does not match, it turns into Disappointment.',
+    keyCue: 'Brows slightly up and eyes searching, with a small, ready smile.',
+    zones: {
+      brows: 'Lift your brows a little and keep them there, hopeful.',
+      eyes: "Open your eyes slightly wider and let them search: the room, the door, the other person's face. You are checking for the thing you pictured.",
+      mouth: 'A small, ready smile with the lips closed or just parted, waiting to grow.',
+      head: 'Stand upright and lean a little forward, chin level. Hands ready, as if about to greet someone.',
+      breath: 'A breath in that you hold, waiting to see.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU5', 'AU12', 'AU25', 'AU62'],
+    confusedWith: [
+      {
+        id: 'excitement',
+        difference: 'In Excitement, the face bursts open, with a big smile and wide eyes. Expectations stay small and checking, with a ready smile and searching eyes.',
+      },
+      {
+        id: 'disappointment',
+        difference: 'In Disappointment, the corners drop, the lips press and the eyes go down after the news. Expectations come before that, with the brows up and the smile ready.',
+      },
+    ],
+    line: "He always calls on my birthday. He'll call.",
+    face: { browInner: 0.3, browOuter: 0.35, eyeOpen: 0.25, gx: 0.4, gy: -0.1, cornerUp: 0.3, open: 0.08, slump: -0.2 },
+    images: imagePaths('expectations'),
+  },
+  {
+    id: 'regret',
+    name: 'Regret',
+    group: 'unplanned',
+    definition: 'Wishing you had made a different choice. You look back at what you did, or did not do, and wish you could change it.',
+    oneLiner: "You think back to the moment you could have said yes, and you didn't.",
+    tier: 'face-body',
+    keyCue: 'Eyes unfocused down and to the side, lips pulled in, a slow head shake.',
+    zones: {
+      brows: 'Lift the inner ends of your brows slightly and draw them together a little.',
+      eyes: 'Look down and off to the side, at nothing, as if watching the moment again. Let the focus go soft and the lids grow heavy. Close the eyes for a moment.',
+      mouth: 'Pull your lips in and press them together. Corners slightly down.',
+      head: 'Shake your head slowly, just a little. Then let it lower and go still. Shoulders soft.',
+      breath: 'A long, slow breath out through the nose or through pressed lips.',
+    },
+    actionUnits: ['AU1', 'AU4', 'AU15', 'AU24', 'AU28', 'AU41', 'AU54', 'AU64'],
+    confusedWith: [
+      {
+        id: 'guilt',
+        difference: 'In Guilt, the eyes drop but keep coming back to the person you wronged. Regret is about your own choice, so the eyes go unfocused into the past and stay there.',
+      },
+      {
+        id: 'disappointment',
+        difference: 'Disappointment is a quick drop at news you just heard, then you move on. Regret is slow and looks back, with a head shake and a long exhale.',
+      },
+    ],
+    line: 'I should have gone. I had the ticket and everything.',
+    face: { browInner: 0.55, squeeze: 0.35, eyeOpen: -0.5, gx: 0.6, gy: 0.5, cornerUp: -0.2, press: 0.75, pitch: 0.3, turn: -0.2, tilt: 4, slump: 0.25 },
+    images: imagePaths('regret'),
+  },
+  {
+    id: 'discouragement',
+    name: 'Discouragement',
+    group: 'unplanned',
+    definition: 'Losing heart after trying and not getting anywhere. Your energy and confidence drain away.',
+    oneLiner: 'You tried again, it failed again, and you start to wonder why you bother.',
+    tier: 'face-body',
+    keyCue: 'Shoulders drop and the head lowers as the energy drains out.',
+    zones: {
+      brows: 'Lift the inner ends of your brows slightly so they tent a little. Keep them soft.',
+      eyes: 'Let the lids grow heavy and the eyes drop to the floor, or to the thing that failed.',
+      mouth: 'Let the corners sag a little. Lips closed and loose, not pressed.',
+      head: 'Let your shoulders drop and round. Lower your head slowly and give it a small shake. Hands go limp.',
+      breath: 'A slow sigh out that empties the chest, with the shoulders sinking as you breathe out.',
+    },
+    actionUnits: ['AU1', 'AU15', 'AU41', 'AU54', 'AU64'],
+    confusedWith: [
+      {
+        id: 'resignation',
+        difference: 'In Resignation, the chin stays up a little, with a flat face and a shrug. Discouragement lets the head and shoulders sink, with a slight tent in the brows.',
+      },
+      {
+        id: 'hopelessness',
+        difference: 'In Hopelessness, the face is empty and vacant, with nothing left in the eyes. Discouragement still has some feeling in it: the brows tent and the head shakes a little.',
+      },
+    ],
+    line: 'I redid the whole thing. Same result.',
+    face: { browInner: 0.5, browOuter: -0.1, squeeze: 0.15, eyeOpen: -0.5, gy: 0.75, cornerUp: -0.3, pitch: 0.7, tilt: -3, slump: 0.9 },
+    images: imagePaths('discouragement'),
+  },
+  {
+    id: 'resignation',
+    name: 'Resignation',
+    group: 'unplanned',
+    definition: 'Accepting something you do not like because you believe you cannot change it. You stop fighting it.',
+    oneLiner: 'You have argued this before and lost, so you just let it go.',
+    tier: 'face-body',
+    keyCue: 'Half-lidded eyes and pressed lips, with a small shrug.',
+    zones: {
+      brows: 'Let your brows sit flat and still. You may lift them once with the shrug, then let them fall.',
+      eyes: 'Lower your upper lids halfway. Look at the person or just past them, flat and steady.',
+      mouth: 'Press your lips together and push the chin up a little, so the lower lip pushes up. Corners level or slightly down.',
+      head: 'Give a small shrug, then let the shoulders drop. Keep the head level or the chin slightly up. Arms hang.',
+      breath: 'A flat breath out through the nose. No sigh and no sound.',
+    },
+    actionUnits: ['AU15', 'AU17', 'AU24', 'AU43', 'AU53'],
+    confusedWith: [
+      {
+        id: 'discouragement',
+        difference: 'In Discouragement, the head drops and the brows tent a little as the energy drains. Resignation stays flat, with the chin up a little and a shrug.',
+      },
+      {
+        id: 'despair',
+        difference: 'In Despair, the body collapses, the brows tent and the mouth hangs open. Resignation holds together, with flat brows and pressed lips.',
+      },
+      {
+        id: 'boredom',
+        difference: 'In Boredom, the head is propped on a hand and the eyes drift around the room. Resignation looks at the person, flat, and shrugs.',
+      },
+    ],
+    line: 'Sure. Whatever you think is best.',
+    face: { browInner: 0.05, eyeOpen: -0.2, lidClose: 0.55, cornerUp: -0.2, press: 0.6, chin: 0.55, pitch: -0.25, slump: 0.3 },
+    images: imagePaths('resignation'),
+  },
+];

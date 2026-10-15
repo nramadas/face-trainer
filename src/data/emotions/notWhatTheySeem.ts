@@ -1,0 +1,221 @@
+import type { Emotion } from '../types';
+import { imagePaths } from '../types';
+
+export const notWhatTheySeem: Emotion[] = [
+  {
+    id: 'amusement',
+    name: 'Amusement',
+    group: 'not-what-they-seem',
+    definition: 'Finding something funny or entertaining. It often starts as a smile and builds into a laugh.',
+    oneLiner: 'Something just struck you as funny, and the laugh is starting to come.',
+    tier: 'face',
+    keyCue: 'A real smile with crinkled eyes, and the head tipping back as the laugh comes.',
+    zones: {
+      brows: 'Let your brows relax and lift slightly. Do not pull them together.',
+      eyes: 'Push your cheeks up so the lower lids bunch and crinkle at the outer corners. The eyes narrow from below and may close as you laugh.',
+      mouth: 'Pull the corners up and back into a wide smile. Then let the jaw drop open as the laugh comes, so the teeth show.',
+      head: 'Tip your head back and a little to the side as the laugh starts. Let the shoulders loosen and shake. You may look away, then back.',
+      breath: 'Short bursts out through the mouth, the start of a laugh. Then a quick breath in to catch up.',
+    },
+    actionUnits: ['AU6', 'AU12', 'AU25', 'AU26', 'AU53'],
+    confusedWith: [
+      {
+        id: 'joy',
+        difference: 'In Joy, the head lifts and the face glows and stays bright, eyes open to the world. Amusement comes in bursts of laughter, with the head tipping back and the eyes squeezing more.',
+      },
+      {
+        id: 'irony',
+        difference: 'Irony is a small half-smile on one side, with no crinkle in the eyes. Amusement is a full, even smile that crinkles the eyes and opens into a laugh.',
+      },
+    ],
+    line: 'Did you see his face?',
+    face: { browInner: 0.2, browOuter: 0.25, lidClose: 0.15, cheekRaise: 1, gx: 0.3, cornerUp: 1, open: 0.7, teeth: 0.55, tilt: 7, pitch: -0.4 },
+    images: imagePaths('amusement'),
+  },
+  {
+    id: 'bittersweetness',
+    name: 'Bittersweetness',
+    group: 'not-what-they-seem',
+    definition: 'Feeling happy and sad at the same time about the same thing. It often comes when something good is ending.',
+    oneLiner: 'Something good is ending, and you are glad it happened and sad it is over.',
+    tier: 'face',
+    keyCue: 'A soft smile at the mouth under sad, lifted inner brows.',
+    zones: {
+      brows: 'Lift the inner ends of your brows up and together, the same tent as sadness but gentler. This is the sad half, and it must show above the smile.',
+      eyes: 'Soften your eyes and tighten the lower lids a little, as if they might get wet. Look warmly at the person or place that is ending.',
+      mouth: 'Let a small, closed-mouth smile form. Keep it soft, not wide, so the sad brows still show.',
+      head: 'Tilt your head a little to the side. Let your shoulders relax and drop slightly.',
+      breath: 'A slow breath out that is half a sigh and half a soft laugh.',
+    },
+    actionUnits: ['AU1', 'AU4', 'AU6', 'AU7', 'AU12', 'AU55'],
+    confusedWith: [
+      {
+        id: 'nostalgia',
+        difference: 'In Nostalgia, the eyes look away into the distance, lost in a memory. Bittersweetness looks right at what is in front of you, the thing that is ending.',
+      },
+      {
+        id: 'sadness',
+        difference: 'In Sadness, the corners of the mouth turn down. Bittersweetness keeps a soft smile at the mouth while the brows stay sad.',
+      },
+    ],
+    line: "This is the last time we'll all be in this kitchen.",
+    face: { browInner: 0.75, browOuter: -0.15, squeeze: 0.4, lowerLid: 0.35, lidClose: 0.1, cheekRaise: 0.15, cornerUp: 0.45, tilt: 6 },
+    images: imagePaths('bittersweetness'),
+  },
+  {
+    id: 'nostalgia',
+    name: 'Nostalgia',
+    group: 'not-what-they-seem',
+    definition: 'Missing a time in the past, often remembered as better than it really was.',
+    oneLiner: 'A song or a smell has taken you back to a time you miss.',
+    tier: 'face-body',
+    keyCue: 'Eyes unfocused into the distance, with a soft half-smile.',
+    zones: {
+      brows: 'Lift the inner ends of your brows slightly. Keep the rest of the face loose.',
+      eyes: 'Let your lids soften and lower a little. Let your gaze drift up and off to the side and lose focus, as if looking at something far away that is not in the room.',
+      mouth: 'A small, soft smile with the lips closed. It can be a little uneven.',
+      head: 'Tilt your head and turn it slightly toward where you are looking. The body goes quiet, maybe leaning back.',
+      breath: 'Slow and deep, ending in a long, soft breath out through the nose.',
+    },
+    actionUnits: ['AU1', 'AU12', 'AU41', 'AU55', 'AU61', 'AU63'],
+    confusedWith: [
+      {
+        id: 'bittersweetness',
+        difference: 'In Bittersweetness, the eyes look right at what is ending, with sad brows over the smile. Nostalgia looks away into the distance, eyes unfocused, lost in the past.',
+      },
+      {
+        id: 'sadness',
+        difference: 'In Sadness, the corners turn down and the eyes drop to the floor. Nostalgia keeps a soft smile and lets the eyes drift up and away.',
+      },
+    ],
+    line: 'We used to walk this way to school.',
+    face: { browInner: 0.4, lidClose: 0.2, gx: -0.55, gy: -0.75, cornerUp: 0.3, cornerAsym: 0.2, tilt: -7, turn: -0.2, pitch: -0.1 },
+    images: imagePaths('nostalgia'),
+  },
+  {
+    id: 'cognitive-dissonance',
+    name: 'Cognitive Dissonance',
+    group: 'not-what-they-seem',
+    definition: 'The uneasy feeling of holding two beliefs that do not fit together, or of acting against what you believe. You want to make the clash go away, often by explaining one side away.',
+    oneLiner: 'What you just did does not match what you believe, and you are trying to make it fit.',
+    tier: 'context',
+    playableNote:
+      'There is no single face for this. Play a person arguing with themselves: brows pulled down and together, eyes shifting from side to side, lips pressed and pulled to one side, and a small shake of the head. Borrows from Confusion, but swaps the open head tilt for a tight mouth and restless eyes that avoid people.',
+    keyCue: 'Eyes shifting side to side while the lips stay pressed and pulled to one side.',
+    zones: {
+      brows: 'Pull your brows down and together, both evenly. Keep them there; the frown does not come and go.',
+      eyes: 'Look to one side, then the other, without settling on anyone. Narrow them slightly.',
+      mouth: 'Press your lips together and pull them to one side. Clench your jaw lightly, as if holding back an answer.',
+      head: 'Keep your head level, then give it a small shake and stop. Shift your weight, or rub your neck or forehead.',
+      breath: 'A short breath in, a hold, then a tight breath out through the nose, like starting a sentence and dropping it.',
+    },
+    actionUnits: ['AU4', 'AU7', 'AU14 (one side)', 'AU24', 'AU61', 'AU62', 'AU84'],
+    confusedWith: [
+      {
+        id: 'confusion',
+        difference: 'In Confusion, the head tilts and one brow lifts, open to an answer. Cognitive dissonance keeps the brows evenly down and the lips pressed, with the eyes shifting side to side as you argue with yourself.',
+      },
+      {
+        id: 'defensiveness',
+        difference: 'In Defensiveness, the chin lifts and the narrowed eyes lock on the other person, ready to argue. Cognitive dissonance is turned inward: the eyes slide away from people and the head gives a small shake.',
+      },
+    ],
+    line: "No, I know what I said. That's different.",
+    face: { browInner: -0.45, squeeze: 0.7, lowerLid: 0.35, gx: 0.8, gy: 0.1, press: 0.55, shift: -0.55, jaw: 0.35, turn: -0.15 },
+    images: imagePaths('cognitive-dissonance'),
+  },
+  {
+    id: 'paradox',
+    name: 'Paradox',
+    group: 'not-what-they-seem',
+    definition: 'Seeing that two things that seem like they cannot both be true are both true. It brings a mix of puzzlement and interest, not distress.',
+    oneLiner: 'Two things that should not fit together are both true, and you are turning it over.',
+    tier: 'context',
+    playableNote:
+      'Paradox has no face of its own. Play it as a puzzle you are enjoying: brows lifted with one slightly higher, eyes up and off to the side as you turn it over, a small closed-mouth smile pulled to one side, and a head tilt. Borrows from Interest and Curiosity, with a hint of a wry smile. It is curious, not troubled.',
+    keyCue: 'Brows lifted and eyes up and off to the side, with a small smile pulled to one side.',
+    zones: {
+      brows: 'Lift both brows slightly, one a little higher than the other. Keep them apart, not pulled together.',
+      eyes: 'Look up and off to one side, as if turning the idea over. Then bring them back to the person.',
+      mouth: 'A small closed-mouth smile, pulled a little to one side. Keep the lips relaxed.',
+      head: 'Tilt your head slightly. Give a slow nod, or hold both hands out palms up, as if weighing two things.',
+      breath: 'A slow breath in, then a short, quiet laugh out through the nose.',
+    },
+    actionUnits: ['AU1', 'AU2 (one side)', 'AU12 (one side)', 'AU55', 'AU63'],
+    confusedWith: [
+      {
+        id: 'confusion',
+        difference: 'In Confusion, the brows lower and the eyes narrow, still trying to make it fit. Paradox lifts the brows and adds a small smile, because you accept that both things are true.',
+      },
+      {
+        id: 'cognitive-dissonance',
+        difference: 'Cognitive dissonance is uncomfortable: brows down, lips pressed, a small head shake. Paradox is at ease: brows up, a small smile, a slow nod.',
+      },
+    ],
+    line: 'The harder I hold on, the faster it goes.',
+    face: { browInner: 0.3, browOuter: 0.3, asym: 0.4, gx: 0.6, gy: -0.6, cornerUp: 0.2, cornerAsym: 0.35, tilt: -6 },
+    images: imagePaths('paradox'),
+  },
+  {
+    id: 'irony',
+    name: 'Irony',
+    group: 'not-what-they-seem',
+    definition: 'Noticing that what happened is the opposite of what was meant or expected. It is also saying one thing while meaning another, with the listener in on it.',
+    oneLiner: 'Things turned out the opposite of how they should, and you both see it.',
+    tier: 'context',
+    playableNote:
+      'Irony has no face of its own. Play it as a small, knowing, one-sided half-smile with a slight lift of one brow, and eyes direct and steady on the person. Borrows from Amusement, held back to one side of the mouth. It shares the joke; it does not mock.',
+    keyCue: 'A small one-sided half-smile with one brow slightly lifted, eyes direct.',
+    zones: {
+      brows: 'Lift one brow slightly. Keep the other one level.',
+      eyes: 'Look straight at the person and hold it. Let the lids relax a little, so the look is calm and knowing.',
+      mouth: 'Pull one corner of your mouth up into a small half-smile, lips closed. The other corner stays still.',
+      head: 'Keep your head still, with at most a tiny tilt or a slow nod. Body relaxed.',
+      breath: 'A short, quiet breath out through the nose, a laugh you keep inside.',
+    },
+    actionUnits: ['AU2 (one side)', 'AU12 (one side)', 'AU14 (one side)'],
+    confusedWith: [
+      {
+        id: 'sarcasm',
+        difference: 'Sarcasm is big and pointed: an eye roll, both brows up, a stretched smile meant to sting. Irony is small: a quiet half-smile and steady eyes that invite the person to share the joke.',
+      },
+      {
+        id: 'amusement',
+        difference: 'Amusement is a full smile on both sides, with crinkled eyes and a laugh. Irony keeps the smile on one side and the eyes uncrinkled and steady.',
+      },
+    ],
+    line: 'So the marriage counselor is getting divorced.',
+    face: { asym: 0.5, lidClose: 0.15, cornerUp: 0.1, cornerAsym: 0.85, tilt: 2 },
+    images: imagePaths('irony'),
+  },
+  {
+    id: 'sarcasm',
+    name: 'Sarcasm',
+    group: 'not-what-they-seem',
+    definition: 'Saying the opposite of what you mean in a mocking way, to make a point or put someone down. The tone and the face give the real meaning away.',
+    oneLiner: 'You are saying the opposite of what you mean, and you want them to feel it.',
+    tier: 'face-body',
+    keyCue: 'Eyes roll up while one corner of the mouth pulls up.',
+    zones: {
+      brows: 'Raise both brows and keep them flat and level, as if you cannot believe what you are hearing.',
+      eyes: 'Roll your eyes up and to the side. Bring them back to the person on the key word.',
+      mouth: 'Pull one corner of your mouth up and back into a tight half-smile. Keep it flat and stretched, not warm.',
+      head: 'Tilt your head to one side. Add a slow nod or a small shrug on the key word.',
+      breath: 'A short huff through the nose before the line. Then let the words come out slow and drawn out.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU12 (one side)', 'AU14 (one side)', 'AU55', 'AU63'],
+    confusedWith: [
+      {
+        id: 'contempt',
+        difference: 'Contempt is quiet and cold: chin up, half-lidded eyes looking down the nose. Sarcasm is a performance: brows up, eyes rolling, head tilted.',
+      },
+      {
+        id: 'irony',
+        difference: 'Irony is small and shared: a quiet half-smile with steady eyes. Sarcasm is big and aimed at someone: an eye roll and a stretched, mocking smile.',
+      },
+    ],
+    line: 'No, please. Take your time.',
+    face: { browInner: 0.55, browOuter: 0.7, gx: 0.4, gy: -1, cornerAsym: 1, stretch: 0.3, tilt: 9 },
+    images: imagePaths('sarcasm'),
+  },
+];

@@ -1,0 +1,223 @@
+import type { Emotion } from '../types';
+import { imagePaths } from '../types';
+
+export const connection: Emotion[] = [
+  {
+    id: 'belonging',
+    name: 'Belonging',
+    group: 'connection',
+    definition: 'Feeling at home in a group just as you are. You do not have to act a part to be welcome.',
+    oneLiner: 'You are with your people, and you can just be yourself.',
+    tier: 'face-body',
+    keyCue: 'Loose shoulders and an easy smile, with the eyes moving around the group.',
+    zones: {
+      brows: 'Let your brows rest, smooth and relaxed. No lift, no frown.',
+      eyes: 'Soft, open eyes with a little crinkle at the corners. Let them move easily from face to face around the group.',
+      mouth: 'An easy, genuine smile that comes and goes on its own. Lips part as you laugh or talk. Jaw loose.',
+      head: 'Let your shoulders drop and loosen. Sit back or lean on something, body open, arms uncrossed.',
+      breath: 'Low, easy and even. A laugh comes out without effort.',
+    },
+    actionUnits: ['AU6', 'AU12', 'AU25', 'AU61', 'AU62'],
+    confusedWith: [
+      {
+        id: 'connection',
+        difference: 'Connection locks onto one person, with steady eye contact and leaning in. Belonging is with a whole group, so the eyes move easily from face to face and the body sits back.',
+      },
+      {
+        id: 'fitting-in',
+        difference: 'Fitting in holds a polite smile too long and checks the others before reacting. Belonging is unguarded: the smile comes and goes on its own and the shoulders stay loose.',
+      },
+    ],
+    line: "Move over. I'm sitting with you.",
+    face: { browInner: 0.05, lidClose: 0.1, cheekRaise: 0.6, gx: -0.75, cornerUp: 0.75, open: 0.28, teeth: 0.45, pitch: -0.1, tilt: -7, slump: -0.1 },
+    images: imagePaths('belonging'),
+  },
+  {
+    id: 'fitting-in',
+    name: 'Fitting In',
+    group: 'connection',
+    definition: 'Changing how you act, talk or look so a group will accept you. You get in, but not as yourself.',
+    oneLiner: 'You laugh at the joke a second after everyone else, because they laughed.',
+    tier: 'context',
+    playableNote:
+      'There is no face that means fitting in. Play the effort to match: a polite smile with no crinkle at the eyes, held a beat too long, eyes checking the others before you react, nodding along and copying their posture. Borrows from a polite social smile plus the checking glances of Insecurity.',
+    keyCue: 'A polite smile held a beat too long, while the eyes check everyone else.',
+    zones: {
+      brows: 'Lift your brows slightly and keep them up, eager and agreeable.',
+      eyes: "Before you react to anything, glance at the others' faces to see how they are reacting. Then match it.",
+      mouth: 'A polite smile: corners up, cheeks still, no crinkle at the eyes. Hold it a beat longer than feels natural.',
+      head: 'Nod along. Copy the posture of the person you want to match. Shoulders slightly up, hands busy or tucked away.',
+      breath: 'Held a little high. A laugh that comes out half a second late.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU12', 'AU56', 'AU62'],
+    confusedWith: [
+      {
+        id: 'belonging',
+        difference: 'Belonging is loose and unguarded, with a smile that comes and goes on its own. Fitting in holds a polite smile too long and checks the others before reacting.',
+      },
+      {
+        id: 'insecurity',
+        difference: 'Insecurity shows the doubt: lip bitten, shoulders pulled in, no smile. Fitting in covers the doubt with a bright, agreeable smile and copies the group.',
+      },
+    ],
+    line: 'Oh, totally. Same. I love that place.',
+    face: { browInner: 0.25, browOuter: 0.3, eyeOpen: 0.1, gx: 0.75, cornerUp: 0.75, press: 0.3, stretch: 0.25, tilt: 5, shoulders: 0.35 },
+    images: imagePaths('fitting-in'),
+  },
+  {
+    id: 'connection',
+    name: 'Connection',
+    group: 'connection',
+    definition: 'The two-way feeling that you and another person really get each other right now. You both listen, and you both respond.',
+    oneLiner: 'You and this person are completely on the same wavelength.',
+    tier: 'face-body',
+    keyCue: 'Steady, direct eye contact with a warm smile, leaning in.',
+    zones: {
+      brows: 'Lift your brows slightly and evenly. Let them move as the other person talks.',
+      eyes: 'Look straight at the person and hold steady eye contact. Let a little crinkle show at the corners.',
+      mouth: 'A warm, genuine smile, lips just parted, ready to answer. Jaw loose.',
+      head: 'Turn your whole body to face the person and lean in. Nod as they speak.',
+      breath: 'Easy and open. Let your breathing fall into rhythm with theirs.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU6', 'AU12', 'AU25'],
+    confusedWith: [
+      {
+        id: 'belonging',
+        difference: 'Belonging is relaxed within a whole group, with the eyes moving around. Connection locks onto one person, with steady eye contact and nodding.',
+      },
+      {
+        id: 'love',
+        difference: 'Love softens the lids, closes the mouth and tilts the head. Connection keeps the eyes open and engaged, and leans in to listen and respond.',
+      },
+    ],
+    line: "Yes. That's it. That's exactly what I meant.",
+    face: { browInner: 0.3, browOuter: 0.35, eyeOpen: 0.3, cheekRaise: 0.5, cornerUp: 0.65, open: 0.15, pitch: 0.2 },
+    images: imagePaths('connection'),
+  },
+  {
+    id: 'disconnection',
+    name: 'Disconnection',
+    group: 'connection',
+    definition: 'Feeling cut off from the people around you, even when they are right there. You are present in body but not really with them.',
+    oneLiner: 'Everyone is talking around you, and you are not really there.',
+    tier: 'face-body',
+    keyCue: 'Eyes looking past the people in front of you, with a blank, polite face.',
+    zones: {
+      brows: 'Let your brows go flat and still. They stop reacting to what people say.',
+      eyes: 'Lower the upper lids a little. Look past the person, or through them, at nothing in particular. Do not hold their eyes.',
+      mouth: 'Mouth flat and closed, lips lightly together. If you smile, keep it thin and short, then let it drop.',
+      head: 'Turn your head and body slightly away from the group. Hold a cup or phone between you and them. Give small nods on autopilot.',
+      breath: 'Shallow, even and a little slow. Quiet.',
+    },
+    actionUnits: ['AU24', 'AU41', 'AU51', 'AU61'],
+    confusedWith: [
+      {
+        id: 'loneliness',
+        difference: 'Loneliness aches for people, so the inner brows lift and the eyes search. Disconnection has gone blank: the brows are flat and the eyes look past the people right in front of you.',
+      },
+      {
+        id: 'boredom',
+        difference: 'Boredom is heavy and restless, with drooping lids, eyes drifting up and the head propped on a hand. Disconnection is upright and blank, with the eyes fixed past the people and the body turned slightly away.',
+      },
+    ],
+    line: 'Mm. Yeah. Sounds good.',
+    face: { browInner: 0.05, eyeOpen: -0.2, lidClose: 0.15, gx: -0.8, gy: 0.1, cornerUp: -0.05, press: 0.2, turn: -0.4, slump: 0.2 },
+    images: imagePaths('disconnection'),
+  },
+  {
+    id: 'insecurity',
+    name: 'Insecurity',
+    group: 'connection',
+    definition: 'Doubting that you are good enough, or that people really accept you. You keep checking for signs that you got it wrong.',
+    oneLiner: 'You just showed them your work, and you are searching their faces for the verdict.',
+    tier: 'face-body',
+    keyCue: 'Teeth on the lower lip, with quick glances to check how others react.',
+    zones: {
+      brows: 'Lift the inner ends of your brows a little and pull them slightly together. A small, unsure tent.',
+      eyes: 'Glance quickly at the other person to check their reaction, then look away, then check again. Do not hold the look.',
+      mouth: 'Rest your top teeth on your lower lip, or tuck the lip in. No smile, or a quick small one that fades.',
+      head: 'Pull your shoulders in and slightly up, so your chest narrows. Head a little down. Hands fidget with a sleeve, a ring or your hair.',
+      breath: 'Shallow and held. A small swallow before you speak.',
+    },
+    actionUnits: ['AU1', 'AU4', 'AU32', 'AU54', 'AU61', 'AU62'],
+    confusedWith: [
+      {
+        id: 'vulnerability',
+        difference: 'Vulnerability stays open and still, holding eye contact while exposed. Insecurity cannot hold it: the eyes keep flicking away to check and the lip gets bitten.',
+      },
+      {
+        id: 'fitting-in',
+        difference: 'Fitting in covers the doubt with a bright, agreeable smile. Insecurity shows the doubt: lip bitten, shoulders pulled in, no smile.',
+      },
+      {
+        id: 'anxiety',
+        difference: 'Anxiety is restless all over, with wide eyes darting everywhere and the shoulders up. Insecurity is aimed at one person: head a little down, eyes glancing up to check their reaction, shoulders pulled in.',
+      },
+    ],
+    line: "Is it okay? You can tell me if it's not.",
+    face: { browInner: 0.45, squeeze: 0.3, eyeOpen: -0.05, gx: 0.7, gy: -0.35, lipBite: 0.6, cornerUp: -0.1, pitch: 0.4, tilt: -3, shoulders: 0.4, slump: 0.45 },
+    images: imagePaths('insecurity'),
+  },
+  {
+    id: 'invisibility',
+    name: 'Invisibility',
+    group: 'connection',
+    definition: 'The feeling that people look past you as if you were not there. What you say and do does not seem to count.',
+    oneLiner: 'You speak up, and the conversation carries on as if you had not.',
+    tier: 'context',
+    playableNote:
+      'Invisibility has no face of its own; it shows in the failed attempt to be noticed. Play a mouth that opens to speak and then closes, brows lifted in hope that then sink, eyes going from face to face waiting for someone to look back, and a body that slowly eases back. Borrows from the quick drop of Disappointment and the searching eyes of Loneliness.',
+    keyCue: 'The mouth opens to speak, then closes when no one looks your way.',
+    zones: {
+      brows: 'Lift your brows a little as you get ready to speak, hopeful. When no one responds, let them sink back.',
+      eyes: 'Look from face to face, waiting for someone to look back at you. When no one does, drop your eyes for a beat.',
+      mouth: 'Part your lips and take the breath to speak, then close your mouth without a word. The corners settle slightly down.',
+      head: 'Lean in a little to join, then ease back. Shoulders drop and the body gets a bit smaller. A half-raised hand comes back down.',
+      breath: 'A breath in to speak, then let it go quietly without using it.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU15', 'AU25', 'AU62'],
+    confusedWith: [
+      {
+        id: 'loneliness',
+        difference: 'Loneliness longs for people who are not there, with sad brows and a long look into the distance. Invisibility happens in a full room: you keep trying to catch an eye, and the mouth opens to speak, then closes.',
+      },
+      {
+        id: 'disconnection',
+        difference: 'Disconnection has stopped trying, with a blank face and eyes looking past people. Invisibility is still trying to be seen: brows lifted, mouth ready to speak, eyes on the others.',
+      },
+    ],
+    line: 'I said that. A minute ago. I said that.',
+    face: { browInner: 0.45, browOuter: 0.15, squeeze: 0.15, eyeOpen: 0.1, gx: 0.7, open: 0.2, cornerUp: -0.2, pitch: 0.1, slump: 0.35 },
+    images: imagePaths('invisibility'),
+  },
+  {
+    id: 'loneliness',
+    name: 'Loneliness',
+    group: 'connection',
+    definition: 'The painful feeling of not having the closeness you need with other people. You can feel it alone or in a crowd.',
+    oneLiner: 'You check your phone again, and still no one has written.',
+    tier: 'face-body',
+    keyCue: 'Sad, lifted inner brows, with the eyes looking out toward where people might be.',
+    zones: {
+      brows: 'Lift the inner ends of your brows and pull them slightly together, a soft, sad tent.',
+      eyes: 'Lower the upper lids a little. Look out and away, toward a window, a door or a phone, as if waiting for someone. Let the look go on for a while.',
+      mouth: 'Lips together, corners a little down. Let a small, sad pout form.',
+      head: 'Wrap your arms around yourself or hold one arm. Shoulders round forward. Head tips a little to one side.',
+      breath: 'Slow and quiet, with a long, soft sigh now and then.',
+    },
+    actionUnits: ['AU1', 'AU4', 'AU15', 'AU17', 'AU41', 'AU62'],
+    confusedWith: [
+      {
+        id: 'sadness',
+        difference: 'Sadness turns inward, with the eyes down. Loneliness looks outward, toward the door, the window or the phone, searching for someone who is not there.',
+      },
+      {
+        id: 'invisibility',
+        difference: 'Invisibility happens in a room full of people, still trying to be noticed. Loneliness longs for people who are not there, so the eyes look off into the distance and the arms wrap around you.',
+      },
+    ],
+    line: "No, I'm fine. I just thought someone might call.",
+    face: { browInner: 0.55, browOuter: -0.1, squeeze: 0.25, eyeOpen: -0.2, gx: 0.55, gy: -0.3, cornerUp: -0.3, press: 0.2, chin: 0.2, pitch: 0.1, tilt: -5, slump: 0.45 },
+    images: imagePaths('loneliness'),
+  },
+];

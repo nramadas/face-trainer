@@ -1,0 +1,155 @@
+import type { Emotion } from '../types';
+import { imagePaths } from '../types';
+
+export const beyond: Emotion[] = [
+  {
+    id: 'awe',
+    name: 'Awe',
+    group: 'beyond',
+    definition: 'Being in front of something so big, powerful or beautiful that it is more than you can take in. You feel small, and your attention is pulled outward.',
+    oneLiner: 'Something enormous is in front of you, and you go still to take it in.',
+    tier: 'face-body',
+    keyCue: 'Jaw dropped and held, with the head tipped back and the body still.',
+    zones: {
+      brows: 'Raise your whole brow, inner and outer ends together, and hold it there. Keep the brows level and apart, not pulled together.',
+      eyes: 'Widen your eyes and lift your gaze up, as if looking at something very tall. Hold the look and blink less than usual.',
+      mouth: 'Let your jaw drop open and stay open. Keep the lips soft. No smile, or only the faintest lift at the corners.',
+      head: 'Tip your head back toward the thing. Then go completely still, hands loose at your sides. This stillness is what makes it awe.',
+      breath: 'One slow breath in through the open mouth, then hold it. If any sound comes out, it is a quiet "oh."',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU5', 'AU25', 'AU26', 'AU53', 'AU63'],
+    confusedWith: [
+      {
+        id: 'wonder',
+        difference: 'In Wonder, the lips are just parted with a small smile, and the eyes move over the details. Awe drops the jaw further, has no smile, and freezes the body.',
+      },
+      {
+        id: 'surprise',
+        difference: 'Surprise is a quick gasp and a jolt back, over in a second. Awe builds slowly and holds, with the head tipped up toward the thing and a long breath in.',
+      },
+    ],
+    line: 'I had no idea it went up that far.',
+    face: { browInner: 0.6, browOuter: 0.7, eyeOpen: 0.6, gy: -0.85, open: 0.8, pitch: -0.5, slump: -0.15 },
+    images: imagePaths('awe'),
+  },
+  {
+    id: 'wonder',
+    name: 'Wonder',
+    group: 'beyond',
+    definition: 'Being amazed by something beautiful or strange and wanting to keep looking at it. It is lighter than awe and pulls you toward the thing.',
+    oneLiner: 'Something beautiful has caught you, and you want to keep looking.',
+    tier: 'face-body',
+    keyCue: 'Brows gently lifted and eyes bright, with lips parted in a small, soft smile.',
+    zones: {
+      brows: 'Lift your brows gently, inner and outer ends together. About half as high as surprise.',
+      eyes: 'Open your eyes a little wider and let them move over the thing, taking in the details. Keep the lids soft, so the eyes look bright, not startled.',
+      mouth: 'Part your lips slightly. Let the corners lift into a small, soft smile.',
+      head: 'Tilt your head a little and lean in toward the thing. The body stays light and loose, not frozen.',
+      breath: 'Soft and slow, with a small, quiet breath in each time you notice something new.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU5', 'AU6', 'AU12', 'AU25', 'AU55'],
+    confusedWith: [
+      {
+        id: 'awe',
+        difference: 'In Awe, the jaw drops, there is no smile, and the whole body freezes. Wonder keeps the lips just parted with a small smile, and the eyes move over the details.',
+      },
+      {
+        id: 'curiosity',
+        difference: 'In Curiosity, one brow goes higher and the eyes search, because there is a question to answer. Wonder has no question yet: both brows lift evenly and the smile is soft.',
+      },
+    ],
+    line: 'Every one of these is different.',
+    face: { browInner: 0.45, browOuter: 0.5, eyeOpen: 0.4, cheekRaise: 0.2, gx: 0.3, gy: -0.25, cornerUp: 0.4, open: 0.25, tilt: 5 },
+    images: imagePaths('wonder'),
+  },
+  {
+    id: 'curiosity',
+    name: 'Curiosity',
+    group: 'beyond',
+    definition: 'Wanting to know or understand something, enough that you move toward it to find out.',
+    oneLiner: 'Something has caught your attention, and you have to find out more.',
+    tier: 'face-body',
+    keyCue: 'Brows lifted with one a bit higher, a small smile, and a lean in.',
+    zones: {
+      brows: 'Lift both brows, then let one go a little higher than the other. Do not lower them or pull them together. That would read as confusion.',
+      eyes: 'Open your eyes a little and make them bright and searching. Look right at the thing, then flick over its details.',
+      mouth: 'A small smile, lips closed or just parted. Only the corners lift.',
+      head: 'Tilt your head and lean your upper body forward. You might take a small step toward the thing.',
+      breath: 'Light and quick, a small lift of breath in, as if you are about to ask a question.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU2 (one side)', 'AU5', 'AU12', 'AU55', 'AU57'],
+    confusedWith: [
+      {
+        id: 'interest',
+        difference: 'In Interest, the brows stay level, the head stays still and the mouth stays neutral. Curiosity moves: one brow higher, a head tilt, a small smile and a lean in.',
+      },
+      {
+        id: 'confusion',
+        difference: 'In Confusion, the brows lower and pull together, and the eyes narrow. Curiosity lifts the brows and keeps the eyes open and bright.',
+      },
+    ],
+    line: 'Where did you find this?',
+    face: { browInner: 0.4, browOuter: 0.45, asym: 0.55, eyeOpen: 0.3, gx: 0.2, cornerUp: 0.3, open: 0.1, tilt: -9, pitch: 0.05 },
+    images: imagePaths('curiosity'),
+  },
+  {
+    id: 'interest',
+    name: 'Interest',
+    group: 'beyond',
+    definition: 'Your attention is caught by something and stays there. You want to keep watching or listening.',
+    oneLiner: 'Someone is telling you something, and you are taking in every word.',
+    tier: 'face-body',
+    keyCue: 'Eyes open and steady on the person, head still and forward.',
+    zones: {
+      brows: 'Lift your brows slightly, both the same amount. Keep them relaxed and apart.',
+      eyes: 'Open your eyes a little and fix them on the person or thing. Blink less. Do not let them wander.',
+      mouth: 'Let your lips part slightly. Keep the jaw loose. No smile needed.',
+      head: 'Hold your head still and bring it slightly forward. Lean in a little. The rest of the body goes quiet.',
+      breath: 'Quiet and slowed. You may hold it for a moment so you do not miss anything.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU5', 'AU25', 'AU57'],
+    confusedWith: [
+      {
+        id: 'curiosity',
+        difference: 'In Curiosity, one brow goes higher, the head tilts and a small smile appears. Interest keeps the brows even, the head still and the mouth neutral.',
+      },
+      {
+        id: 'confusion',
+        difference: 'In Confusion, the brows lower and pull together, the eyes narrow and the head tilts. Interest lifts the brows a little and keeps the eyes open and steady.',
+      },
+    ],
+    line: 'And then what did she say?',
+    face: { browInner: 0.25, browOuter: 0.3, eyeOpen: 0.35, open: 0.15, pitch: 0.1 },
+    images: imagePaths('interest'),
+  },
+  {
+    id: 'surprise',
+    name: 'Surprise',
+    group: 'beyond',
+    definition: 'The quick reaction to something you did not expect. It lasts a second or two, then turns into another feeling.',
+    oneLiner: 'Something you did not see coming just happened.',
+    tier: 'face',
+    keyCue: 'Brows up high and level, not drawn together, with the jaw dropped.',
+    zones: {
+      brows: 'Raise your whole brow as high as it goes, inner and outer ends together. Do not pull them toward each other. The forehead lines run straight across.',
+      eyes: 'Open your eyes wide, so white shows above the iris. Look straight at what surprised you.',
+      mouth: 'Drop your jaw so the mouth falls open in a loose oval. Keep the lips relaxed, not stretched.',
+      head: 'A small jolt back, with the head and shoulders pulling up. Hold it for a beat, then let it turn into whatever comes next.',
+      breath: 'One quick gasp in through the mouth. It is short and stops at the top.',
+    },
+    actionUnits: ['AU1', 'AU2', 'AU5', 'AU25', 'AU26'],
+    confusedWith: [
+      {
+        id: 'fear',
+        difference: 'In Fear, the brows pull together as they rise, and the lips stretch sideways. Surprise keeps the brows level and apart, with the jaw hanging loose.',
+      },
+      {
+        id: 'awe',
+        difference: 'In Awe, the look holds, with a slow breath and the head tipped up toward the thing. Surprise is a quick gasp and a jolt back, over in a second.',
+      },
+    ],
+    line: "Wait, you're back already?",
+    face: { browInner: 0.95, browOuter: 1, eyeOpen: 1, open: 1, pitch: -0.1, shoulders: 0.35 },
+    images: imagePaths('surprise'),
+  },
+];

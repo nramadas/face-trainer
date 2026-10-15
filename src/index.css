@@ -1,0 +1,218 @@
+@import 'tailwindcss';
+
+/* Inter, bundled locally (latin subset only) so it works offline. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('../node_modules/@fontsource-variable/inter/files/inter-latin-wght-italic.woff2') format('woff2-variations');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/*
+ * Color tokens. src/theme.test.ts reads these values from this file and checks
+ * WCAG AA contrast for text on the glass surfaces, so keep the hex format.
+ */
+@theme {
+  --color-bg: #0f2c30;
+  --color-bg-deep: #0a1315;
+  --color-ink: #f2f7f7;
+  --color-muted: #b5c8cc;
+  --color-faint: #afc3c8;
+  --color-accent: #2fa4b0;
+  --color-accent-strong: #17808b;
+  --color-accent-deep: #116a73;
+  --color-accent-text: #7fd8e0;
+  --color-danger: #f8b0a7;
+  --color-warn: #ecc988;
+  --color-status-new: #4a6064;
+  --color-status-learning: #e8c27a;
+  --color-status-learned: #4fb8c2;
+  --color-status-solid: #8fe3b0;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --animate-ring: ring 2.4s ease-out infinite;
+  --animate-fade-in: fade-in 0.25s ease-out both;
+
+  @keyframes ring {
+    0% {
+      transform: scale(0.92);
+      opacity: 0.55;
+    }
+    80%,
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+:root {
+  /* Face tokens used by the SVG face, tuned to sit on the dark glass cards. */
+  --face: #ece5db;
+  --face-ink: #1b2430;
+  --face-hl: #17808b;
+  --hair: #4a5563;
+  --shirt: #5c7e86;
+  --sclera: #ffffff;
+  --mouth: #4a2730;
+  --teeth: #ffffff;
+  --cheek: #e3a493;
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@utility glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+@utility glass-strong {
+  background: var(--glass-strong);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+@utility glow {
+  box-shadow:
+    0 0 0 1px rgba(111, 208, 217, 0.35) inset,
+    0 10px 30px -6px rgba(47, 164, 176, 0.55),
+    0 0 42px -4px rgba(47, 164, 176, 0.45);
+}
+@utility btn-accent {
+  background: linear-gradient(180deg, #17808b 0%, #116a73 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+html {
+  background: var(--color-bg-deep);
+}
+body {
+  margin: 0;
+  min-height: 100dvh;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* Fixed backdrop: deep teal to near-black, with soft blurred light. */
+.app-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(70% 38% at 85% -4%, rgba(47, 164, 176, 0.14), transparent 70%),
+    radial-gradient(55% 32% at -10% 26%, rgba(47, 164, 176, 0.08), transparent 70%),
+    radial-gradient(60% 30% at 50% 110%, rgba(23, 128, 139, 0.14), transparent 70%),
+    linear-gradient(180deg, #0f2c30 0%, #0c2124 45%, #0a1315 100%);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-text);
+  outline-offset: 2px;
+}
+
+/* Face drawing */
+.face {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.face .ln {
+  stroke: var(--face-ink);
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.face g[data-zone] {
+  transition: opacity 0.2s;
+}
+/*
+ * Highlight: on a dark card, dimming the whole head would turn the skin dark.
+ * So the skin, hair and shirt fills stay; other features fade, and the head's
+ * own lines fade by stroke-opacity (which keeps each line's own opacity).
+ */
+.face[data-hl] :where(g[data-zone]:not([data-zone='head'])) {
+  opacity: 0.3;
+}
+.face[data-hl]:not([data-hl='head']) g[data-zone='head'] .ln {
+  stroke-opacity: 0.35;
+}
+.face[data-hl='brows'] g[data-zone='brows'],
+.face[data-hl='eyes'] g[data-zone='eyes'],
+.face[data-hl='mouth'] g[data-zone='mouth'] {
+  opacity: 1;
+}
+.face[data-hl='brows'] g[data-zone='brows'] .ln,
+.face[data-hl='eyes'] g[data-zone='eyes'] .ln,
+.face[data-hl='mouth'] g[data-zone='mouth'] .ln,
+.face[data-hl='head'] g[data-zone='head'] .ln {
+  stroke: var(--face-hl);
+}
+
+/* Reduced motion: from the system or from Settings. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+html[data-reduce-motion='true'] *,
+html[data-reduce-motion='true'] *::before,
+html[data-reduce-motion='true'] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
